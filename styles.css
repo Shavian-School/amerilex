@@ -1,0 +1,42 @@
+/*
+@font-face{
+	font-family: "Noto Sans Shavian";
+	src: url('NotoSansShavian-Regular.ttf');
+}
+
+*{
+	font-family: sans-serif, "Noto Sans Shavian";
+}
+*/
+
+.numinput{
+	width: 64px;
+}
+
+table{
+	border-collapse: collapse;
+	margin-top: 10px;
+}
+
+tr:nth-child(odd){
+	background-color: #e0e0e0;
+}
+
+#navbutton{
+	text-align: center;
+	font-size: 1.5em;
+	user-select: none;
+}
+
+#navbutton:hover{
+	background-color: #c0c0c0;
+}
+
+#navbutton:active{
+	background-color: #ffffff;
+}
+
+th, td{
+	padding-left: 5px;
+	padding-right: 5px;
+}

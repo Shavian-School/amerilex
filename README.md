@@ -2,8 +2,8 @@
 
 Code manually forked from the [Shavian ReadLex dictionary](https://iykury.xyz/webtoys/readlex/).
 
-This is a Shavian dictionary for the General American accent of English.
+This is a Shavian dictionary for the General American accent of English. See the ReadLex mentioned above for a GB / UK accent.
 
-Dictionary generated from Dave Coffin's transliteration script found here: https://dechifro.org/shavian/
+This dictionary is generated from [Dave Coffin's transliteration script and dictionary "dave.dict"](https://dechifro.org/shavian/). It is a General American accent taken mostly from Merriam-Webster, but without vowel mergers.
 
-Word frequency generated from Wiktionary's TV Show word frequency list found here: https://github.com/unixpickle/wordfreqs/blob/master/prefetched/tv.csv
+Word frequency generated from [Wiktionary's TV Show word frequency list](https://github.com/unixpickle/wordfreqs/blob/master/prefetched/tv.csv).

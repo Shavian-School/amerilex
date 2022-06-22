@@ -108,11 +108,11 @@
             }
             chunk+= "</tr>";
           }
-          console.log(chunk);
           $("#jetsContent").append(chunk);
+          console.log('chunk appended')
         },
         complete: function() {
-          alert("streaming data done!");
+          console.log("adding jets search to table");
           var jets = new Jets({
             contentTag: '#jetsContent',
             searchInSpecificColumn: true,

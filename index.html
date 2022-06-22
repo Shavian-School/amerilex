@@ -126,29 +126,7 @@
       });
     }
 
-    function displayHTMLTable(results){
-      var table = "<table class='table'><thead><tr>";
-      var data = results.data;
-      console.log(results.data);
-      var header = data.shift();
-      for(h=0;h<header.length;h++){
-        table+= "<th>" + header[h] + "</th>";
-      }
-      table+= "</tr></thead><tbody id='jetsContent'>";
-
-      for(i=0;i<data.length;i++){
-        table+= "<tr>";
-        var row = data[i];
-        for(j=0;j<row.length;j++){
-          var cell = row[j];
-          table+= "<td>" + cell + "</td>";
-        }
-        table+= "</tr>";
-      }
-      table+= "</tbody></table>";
-      $("#parsed_csv_list").html(table);
-      
-    }
+    getDictionary();
   </script>
  </body>
  

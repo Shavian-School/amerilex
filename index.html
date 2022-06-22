@@ -92,6 +92,7 @@
     function displayHTMLTable(results){
       var table = "<table class='table'><thead><tr>";
       var data = results.data;
+      console.log(results.data);
       var header = data.shift();
       for(h=0;h<header.length;h++){
         table+= "<th>" + header[h] + "</th>";

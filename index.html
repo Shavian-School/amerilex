@@ -113,14 +113,14 @@
         },
         complete: function() {
           console.log("adding jets search to table");
-          var jets = new Jets({
-            contentTag: '#jetsContent',
-            searchInSpecificColumn: true,
-            callSearchManually: true,
-            columns: [0 ,1]
-          });
-          $("#shavian_search").on("input", function(event) { jets.search(event.target.value, 1) } );
-          $("#latin_search").on("input", function(event) { jets.search(event.target.value, 0) } );
+          // var jets = new Jets({
+          //   contentTag: '#jetsContent',
+          //   searchInSpecificColumn: true,
+          //   callSearchManually: true,
+          //   columns: [0 ,1]
+          // });
+          // $("#shavian_search").on("input", function(event) { jets.search(event.target.value, 1) } );
+          // $("#latin_search").on("input", function(event) { jets.search(event.target.value, 0) } );
         }
       });
     }

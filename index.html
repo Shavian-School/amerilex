@@ -51,7 +51,20 @@
       <input id='latin_search' placeholder='search' type='search'>
       <input id='shavian_search' placeholder="𐑕𐑻𐑗" type='search'>
     </div>
-    <div id="parsed_csv_list"></div>
+    <div id="parsed_csv_list">
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>Latin</th>
+            <th>Shavian</th>
+            <th>Part of Speech</th>
+            <th>Pronunciation</th>
+            <th>Frequency</th>
+          </tr>
+        </thead>
+        <tbody id='jetsContent'></tbody>
+      </table>
+    </div>
   </div>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -77,16 +90,39 @@
 
       $("#parsed_csv_list").empty();
 
+
+
       Papa.parse(csvURL, {
         download: true,
         header: false,
         delimiter: "\t",
         worker: true,
-        step: function(results, parser) {
-          console.log("Row data:", results.data);
-          console.log("Row errors:", results.errors);
+        chunk: function(results, parser) {
+          console.log("chunk data:", results.data);
+          console.log("chunk errors:", results.errors);
+          var chunk = "";
+          for(i=0;i<data.length;i++){
+            chunk+= "<tr>";
+            var row = data[i];
+            for(j=0;j<row.length;j++){
+              var cell = row[j];
+              chunk+= "<td>" + cell + "</td>";
+            }
+            chunk+= "</tr>";
+          }
+          $("#jetsContent").append(chunk);
         },
-        complete: displayHTMLTable(results, file)
+        complete: function() {
+          alert("streaming data done!");
+          var jets = new Jets({
+            contentTag: '#jetsContent',
+            searchInSpecificColumn: true,
+            callSearchManually: true,
+            columns: [0 ,1]
+          });
+          $("#shavian_search").on("input", function(event) { jets.search(event.target.value, 1) } );
+          $("#latin_search").on("input", function(event) { jets.search(event.target.value, 0) } );
+        }
       });
     }
 
@@ -111,14 +147,7 @@
       }
       table+= "</tbody></table>";
       $("#parsed_csv_list").html(table);
-      var jets = new Jets({
-        contentTag: '#jetsContent',
-        searchInSpecificColumn: true,
-        callSearchManually: true,
-        columns: [0 ,1]
-      });
-      $("#shavian_search").on("input", function(event) { jets.search(event.target.value, 1) } );
-      $("#latin_search").on("input", function(event) { jets.search(event.target.value, 0) } );
+      
     }
   </script>
  </body>

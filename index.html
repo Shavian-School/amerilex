@@ -103,13 +103,14 @@
           for(i=0;i<results.data.length;i++){
             chunk+= "<tr>";
             var row = results.data[i];
-            console.log(row);
+            
             for(j=0;j<row.length;j++){
               var cell = row[j];
               chunk+= "<td>" + cell + "</td>";
             }
             chunk+= "</tr>";
           }
+          console.log(chunk);
           $("#jetsContent").append(chunk);
         },
         complete: function() {
